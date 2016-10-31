@@ -1,0 +1,14 @@
+E:\日常工作\输入输入系统最新版本（12所测评版）\LogManage\LogManage.CommonControls\obj\Debug\LogManage.CommonControls.ExceptionBox.resources
+E:\日常工作\输入输入系统最新版本（12所测评版）\LogManage\LogManage.CommonControls\obj\Debug\LogManage.CommonControls.Properties.Resources.resources
+E:\日常工作\输入输入系统最新版本（12所测评版）\LogManage\LogManage.CommonControls\obj\Debug\LogManage.CommonControls.csproj.GenerateResource.Cache
+E:\日常工作\输入输入系统最新版本（12所测评版）\LogManage\LogManage.CommonControls\bin\Debug\LogManage.CommonControls.dll
+E:\日常工作\输入输入系统最新版本（12所测评版）\LogManage\LogManage.CommonControls\bin\Debug\LogManage.CommonControls.pdb
+E:\日常工作\输入输入系统最新版本（12所测评版）\LogManage\LogManage.CommonControls\obj\Debug\LogManage.CommonControls.dll
+E:\日常工作\输入输入系统最新版本（12所测评版）\LogManage\LogManage.CommonControls\obj\Debug\LogManage.CommonControls.pdb
+E:\GitHub\LogManage\LogManage\LogManage.CommonControls\bin\Debug\LogManage.CommonControls.dll
+E:\GitHub\LogManage\LogManage\LogManage.CommonControls\bin\Debug\LogManage.CommonControls.pdb
+E:\GitHub\LogManage\LogManage\LogManage.CommonControls\obj\Debug\LogManage.CommonControls.ExceptionBox.resources
+E:\GitHub\LogManage\LogManage\LogManage.CommonControls\obj\Debug\LogManage.CommonControls.Properties.Resources.resources
+E:\GitHub\LogManage\LogManage\LogManage.CommonControls\obj\Debug\LogManage.CommonControls.csproj.GenerateResource.Cache
+E:\GitHub\LogManage\LogManage\LogManage.CommonControls\obj\Debug\LogManage.CommonControls.dll
+E:\GitHub\LogManage\LogManage\LogManage.CommonControls\obj\Debug\LogManage.CommonControls.pdb

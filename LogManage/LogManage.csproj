@@ -1,0 +1,367 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7B1F8903-A299-4DC1-B7A9-D3C84F1A0E39}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LogManage</RootNamespace>
+    <AssemblyName>LogManage</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AidedForms\frmEditAppGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AidedForms\frmEditAppGroup.Designer.cs">
+      <DependentUpon>frmEditAppGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AidedForms\frmEditTableProperty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AidedForms\frmEditTableProperty.Designer.cs">
+      <DependentUpon>frmEditTableProperty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogAnalysis\AnalysisResultService.cs" />
+    <Compile Include="LogAnalysis\ColorsPool.cs" />
+    <Compile Include="LogAnalysis\frmAnalysis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogAnalysis\frmAnalysis.Designer.cs">
+      <DependentUpon>frmAnalysis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AidedForms\frmAudit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AidedForms\frmAudit.Designer.cs">
+      <DependentUpon>frmAudit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AidedForms\frmEditAppProperty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AidedForms\frmEditAppProperty.Designer.cs">
+      <DependentUpon>frmEditAppProperty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AidedForms\frmEditAppStruct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AidedForms\frmEditAppStruct.Designer.cs">
+      <DependentUpon>frmEditAppStruct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AidedForms\frmEditItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AidedForms\frmEditItem.Designer.cs">
+      <DependentUpon>frmEditItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AidedForms\frmExportTableStructs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AidedForms\frmExportTableStructs.Designer.cs">
+      <DependentUpon>frmExportTableStructs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AidedForms\frmImportTables.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AidedForms\frmImportTables.Designer.cs">
+      <DependentUpon>frmImportTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AidedForms\frmLogViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AidedForms\frmLogViewer.Designer.cs">
+      <DependentUpon>frmLogViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AidedForms\frmSearchRow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AidedForms\frmSearchRow.Designer.cs">
+      <DependentUpon>frmSearchRow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AidedForms\ISearchColumn.cs" />
+    <Compile Include="LogAnalysis\frmChartObserver.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogAnalysis\frmChartObserver.Designer.cs">
+      <DependentUpon>frmChartObserver.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogAnalysis\frmWaiting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogAnalysis\frmWaiting.Designer.cs">
+      <DependentUpon>frmWaiting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogAnalysis\GraphPart.cs" />
+    <Compile Include="LogAnalysis\IGraph.cs" />
+    <Compile Include="LogAnalysis\IObserver.cs" />
+    <Compile Include="LogAnalysis\IStatistics.cs" />
+    <Compile Include="LogAnalysis\LogRecordsPool.cs" />
+    <Compile Include="LogAnalysis\SPI\ActionStatistics.cs" />
+    <Compile Include="LogAnalysis\SPI\BarChartGraph.cs" />
+    <Compile Include="LogAnalysis\SPI\EventStatistics.cs" />
+    <Compile Include="LogAnalysis\SPI\PieChartGraph.cs" />
+    <Compile Include="LogAnalysis\SPI\ResultStatistics.cs" />
+    <Compile Include="SelfDefineControl\AuditTabPage.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SelfDefineControl\DrawBoard.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SelfDefineControl\DrawBoard.Designer.cs">
+      <DependentUpon>DrawBoard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SelfDefineControl\ucAudit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SelfDefineControl\ucAudit.Designer.cs">
+      <DependentUpon>ucAudit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSplash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSplash.Designer.cs">
+      <DependentUpon>frmSplash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SelfDefineControl\LogShowTabPage.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SelfDefineControl\MyTabControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SelfDefineControl\MyTabControlDesigner.cs" />
+    <Compile Include="SelfDefineControl\ucSearchCartoon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SelfDefineControl\ucSearchCartoon.Designer.cs">
+      <DependentUpon>ucSearchCartoon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SelfDefineControl\usShowLog.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SelfDefineControl\usShowLog.Designer.cs">
+      <DependentUpon>usShowLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\LogServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Services\LogContentService.cs" />
+    <Compile Include="Services\IShowAppFormService.cs" />
+    <Compile Include="Services\LogOperatorInfo.cs" />
+    <Compile Include="Services\LogTableInfo.cs" />
+    <Compile Include="UndoRedo\AddNewTableColumnsCommand.cs" />
+    <Compile Include="UndoRedo\ExchangeTwoTableColumnPositionCommand.cs" />
+    <Compile Include="UndoRedo\ImportAppStructsCommand.cs" />
+    <Compile Include="UndoRedo\UpdateLogTableItemValueCommand.cs" />
+    <Compile Include="UndoRedo\CreateNewAppCommand.cs" />
+    <Compile Include="UndoRedo\CreateNewLogStruct.cs" />
+    <Compile Include="UndoRedo\DeleteAppCommand.cs" />
+    <Compile Include="UndoRedo\DeleteTableCommand.cs" />
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AppService.cs" />
+    <Compile Include="Services\DBService.cs" />
+    <Compile Include="Services\LogColumnService.cs" />
+    <Compile Include="UndoRedo\RemoveTableColumnsCommand.cs" />
+    <Compile Include="UndoRedo\UpdateAppPropertiesCommand.cs" />
+    <Compile Include="UndoRedo\ReNameTableCommand.cs" />
+    <Compile Include="UndoRedo\UpdateTableItemSequenceCommand.cs" />
+    <EmbeddedResource Include="AidedForms\frmEditAppGroup.resx">
+      <DependentUpon>frmEditAppGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AidedForms\frmEditTableProperty.resx">
+      <DependentUpon>frmEditTableProperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogAnalysis\frmAnalysis.resx">
+      <DependentUpon>frmAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AidedForms\frmAudit.resx">
+      <DependentUpon>frmAudit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AidedForms\frmEditAppProperty.resx">
+      <DependentUpon>frmEditAppProperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AidedForms\frmEditAppStruct.resx">
+      <DependentUpon>frmEditAppStruct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AidedForms\frmEditItem.resx">
+      <DependentUpon>frmEditItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AidedForms\frmExportTableStructs.resx">
+      <DependentUpon>frmExportTableStructs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AidedForms\frmImportTables.resx">
+      <DependentUpon>frmImportTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AidedForms\frmLogViewer.resx">
+      <DependentUpon>frmLogViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AidedForms\frmSearchRow.resx">
+      <DependentUpon>frmSearchRow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogAnalysis\frmChartObserver.resx">
+      <DependentUpon>frmChartObserver.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogAnalysis\frmWaiting.resx">
+      <DependentUpon>frmWaiting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelfDefineControl\ucAudit.resx">
+      <DependentUpon>ucAudit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSplash.resx">
+      <DependentUpon>frmSplash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelfDefineControl\ucSearchCartoon.resx">
+      <DependentUpon>ucSearchCartoon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelfDefineControl\usShowLog.resx">
+      <DependentUpon>usShowLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Service References\LogServiceReference\LogManage.LogServiceReference.LogAppGroupNamePlus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LogServiceReference\LogManage.LogServiceReference.LogAppPlus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LogServiceReference\LogManage.LogServiceReference.LogColumnPlus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LogServiceReference\LogManage.LogServiceReference.LogRecordPlus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LogServiceReference\LogManage.LogServiceReference.LogTableItemPlus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LogServiceReference\LogManage.LogServiceReference.LogTablePuls.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LogServiceReference\LogManage.LogServiceReference.RuleActionResultPlus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LogServiceReference\LogManage.LogServiceReference.RuleEvenPlus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LogServiceReference\LogManageService.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LogManage.DataType.Relations\LogManage.DataType.Relations.csproj">
+      <Project>{D5998E5B-C3F5-4D59-9185-8B259A539329}</Project>
+      <Name>LogManage.DataType.Relations</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LogManage.DataType.Rules\LogManage.DataType.Rules.csproj">
+      <Project>{365FBEFD-03E5-4CA0-93C3-0B149DC82A40}</Project>
+      <Name>LogManage.DataType.Rules</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LogManage.DataType\LogManage.DataType.csproj">
+      <Project>{666F4960-ECB9-45E9-BCDD-E925BF65F777}</Project>
+      <Name>LogManage.DataType</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\LogServiceReference\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\LogServiceReference\LogManageService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\LogServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\LogServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\LogServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png-0634.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png-0005.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

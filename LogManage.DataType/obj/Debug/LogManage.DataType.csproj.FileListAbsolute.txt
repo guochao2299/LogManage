@@ -1,0 +1,8 @@
+E:\日常工作\输入输入系统最新版本（12所测评版）\LogManage\LogManage.DataType\bin\Debug\LogManage.DataType.dll
+E:\日常工作\输入输入系统最新版本（12所测评版）\LogManage\LogManage.DataType\bin\Debug\LogManage.DataType.pdb
+E:\日常工作\输入输入系统最新版本（12所测评版）\LogManage\LogManage.DataType\obj\Debug\LogManage.DataType.dll
+E:\日常工作\输入输入系统最新版本（12所测评版）\LogManage\LogManage.DataType\obj\Debug\LogManage.DataType.pdb
+E:\GitHub\LogManage\LogManage\LogManage.DataType\bin\Debug\LogManage.DataType.dll
+E:\GitHub\LogManage\LogManage\LogManage.DataType\bin\Debug\LogManage.DataType.pdb
+E:\GitHub\LogManage\LogManage\LogManage.DataType\obj\Debug\LogManage.DataType.dll
+E:\GitHub\LogManage\LogManage\LogManage.DataType\obj\Debug\LogManage.DataType.pdb

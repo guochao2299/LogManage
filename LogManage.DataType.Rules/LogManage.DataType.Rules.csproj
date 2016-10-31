@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{365FBEFD-03E5-4CA0-93C3-0B149DC82A40}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LogManage.DataType.Rules</RootNamespace>
+    <AssemblyName>LogManage.DataType.Rules</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Evaluation\EvaluateResult.cs" />
+    <Compile Include="Evaluation\FinalReturnRuleProcessorBase.cs" />
+    <Compile Include="Evaluation\ImmediatelyReturnRuleProcessorBase.cs" />
+    <Compile Include="Evaluation\RulesService.cs" />
+    <Compile Include="Evaluation\SPI\ImmediatelyReturnRuleProcessor.cs" />
+    <Compile Include="frmEditEventProperty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditEventProperty.Designer.cs">
+      <DependentUpon>frmEditEventProperty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEditRuleResult.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditRuleResult.Designer.cs">
+      <DependentUpon>frmEditRuleResult.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEditRules.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditRules.Designer.cs">
+      <DependentUpon>frmEditRules.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEditUserActionProperty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditUserActionProperty.Designer.cs">
+      <DependentUpon>frmEditUserActionProperty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IManageRuleData.cs" />
+    <Compile Include="Evaluation\IRuleProcessor.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SecurityActionResult.cs" />
+    <Compile Include="SecurityEventService.cs" />
+    <Compile Include="SecurityAction.cs" />
+    <Compile Include="SecurityCondition.cs" />
+    <Compile Include="SecurityEvent.cs" />
+    <Compile Include="ucCondition.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucCondition.Designer.cs">
+      <DependentUpon>ucCondition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UndoRedo\CreateActionConditionCommand.cs" />
+    <Compile Include="UndoRedo\CreateNewSecurityEventCommand.cs" />
+    <Compile Include="UndoRedo\CreateNewUserActionCommand.cs" />
+    <Compile Include="UndoRedo\DeleteActionConditionCommand.cs" />
+    <Compile Include="UndoRedo\DeleteSecurityActionCommand.cs" />
+    <Compile Include="UndoRedo\DeleteSecurityEventCommand.cs" />
+    <Compile Include="UndoRedo\UpdateActionConditionCommand.cs" />
+    <Compile Include="UndoRedo\UpdateSecurityActionCommand.cs" />
+    <Compile Include="UndoRedo\UpdateSecurityEventCommand.cs" />
+    <Compile Include="usEditResult.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usEditResult.Designer.cs">
+      <DependentUpon>usEditResult.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="frmEditEventProperty.resx">
+      <DependentUpon>frmEditEventProperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditRuleResult.resx">
+      <DependentUpon>frmEditRuleResult.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditRules.resx">
+      <DependentUpon>frmEditRules.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditUserActionProperty.resx">
+      <DependentUpon>frmEditUserActionProperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucCondition.resx">
+      <DependentUpon>ucCondition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usEditResult.resx">
+      <DependentUpon>usEditResult.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LogManage.DataType.Relations\LogManage.DataType.Relations.csproj">
+      <Project>{D5998E5B-C3F5-4D59-9185-8B259A539329}</Project>
+      <Name>LogManage.DataType.Relations</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LogManage.DataType\LogManage.DataType.csproj">
+      <Project>{666F4960-ECB9-45E9-BCDD-E925BF65F777}</Project>
+      <Name>LogManage.DataType</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

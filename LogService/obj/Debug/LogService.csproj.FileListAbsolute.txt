@@ -1,0 +1,14 @@
+E:\日常工作\输入输入系统最新版本（12所测评版）\LogManage\LogService\bin\LogService.dll
+E:\日常工作\输入输入系统最新版本（12所测评版）\LogManage\LogService\bin\LogService.pdb
+E:\日常工作\输入输入系统最新版本（12所测评版）\LogManage\LogService\bin\LogManage.DataType.Relations.dll
+E:\日常工作\输入输入系统最新版本（12所测评版）\LogManage\LogService\bin\LogManage.DataType.Relations.pdb
+E:\日常工作\输入输入系统最新版本（12所测评版）\LogManage\LogService\obj\Debug\LogService.csprojResolveAssemblyReference.cache
+E:\日常工作\输入输入系统最新版本（12所测评版）\LogManage\LogService\obj\Debug\LogService.dll
+E:\日常工作\输入输入系统最新版本（12所测评版）\LogManage\LogService\obj\Debug\LogService.pdb
+E:\GitHub\LogManage\LogManage\LogService\bin\LogService.dll
+E:\GitHub\LogManage\LogManage\LogService\bin\LogService.pdb
+E:\GitHub\LogManage\LogManage\LogService\bin\LogManage.DataType.Relations.dll
+E:\GitHub\LogManage\LogManage\LogService\bin\LogManage.DataType.Relations.pdb
+E:\GitHub\LogManage\LogManage\LogService\obj\Debug\LogService.csprojResolveAssemblyReference.cache
+E:\GitHub\LogManage\LogManage\LogService\obj\Debug\LogService.dll
+E:\GitHub\LogManage\LogManage\LogService\obj\Debug\LogService.pdb

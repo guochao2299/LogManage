@@ -1,0 +1,1 @@
+﻿<%@ WebService Language="C#" CodeBehind="LogManageService.asmx.cs" Class="LogService.LogManageService" %>

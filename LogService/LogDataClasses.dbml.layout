@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="LogDataClasses">
+  <DataContextMoniker Name="/LogDataContext" />
+  <nestedChildShapes>
+    <classShape Id="baf145e0-b844-4d73-b447-d8f997a945e2" isExpanded="false" absoluteBounds="2.625, 1.75, 2, 0.45">
+      <DataClassMoniker Name="/LogDataContext/SystemParam" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9cdbec96-1082-4726-9dbd-a21c2041b2a0" absoluteBounds="2.6399999999999997, 2.21, 1.9700000000000002, 0.55110677083333326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8640ef08-fb52-4af1-be8f-b0c48b54868b" isExpanded="false" absoluteBounds="4.75, 1.75, 2, 0.45">
+      <DataClassMoniker Name="/LogDataContext/Table" />
+      <nestedChildShapes>
+        <elementListCompartment Id="dbe7c6f6-6032-4676-b9a3-4bbfc6443bf3" absoluteBounds="4.765, 2.21, 1.9700000000000002, 0.88834635416666674" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c873608f-c6a1-4a54-9cd7-9b9515a58a29" isExpanded="false" absoluteBounds="0.5, 2.375, 2, 0.45">
+      <DataClassMoniker Name="/LogDataContext/LogContent" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8fb2f630-e32b-45f5-ae45-91a5f523b54d" absoluteBounds="0.51500000000000012, 2.835, 1.9700000000000002, 1.2255859375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e8fb5938-9795-4ac6-88fa-2fe1dd5e0ae2" isExpanded="false" absoluteBounds="0.5, 1.75, 2, 0.45">
+      <DataClassMoniker Name="/LogDataContext/Column" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a5e5ea9a-dbd2-4250-b1cf-98c5420b03d5" absoluteBounds="0.51500000000000012, 2.21, 1.9700000000000002, 0.88834635416666674" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2fa57d0c-6269-4f21-97b0-68bdcc15376c" isExpanded="false" absoluteBounds="0.5, 0.5, 2, 0.45">
+      <DataClassMoniker Name="/LogDataContext/ActionResult" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b21985d9-194a-4984-9d57-3998f88b68e9" absoluteBounds="0.515, 0.96, 1.9700000000000002, 0.7197265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2118f228-f18e-4a2d-866b-5b9fbbcad5d9" isExpanded="false" absoluteBounds="0.625, 4.625, 2, 0.45">
+      <DataClassMoniker Name="/LogDataContext/RulesEvent" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d6ddc0da-8551-4f8c-8c4b-e8dd54d31fad" absoluteBounds="0.63999999999999968, 5.085, 1.9700000000000002, 0.7197265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b0d2c3d7-8a97-4ee6-83b6-01adcab851b3" isExpanded="false" absoluteBounds="0.5, 3.375, 2, 0.45">
+      <DataClassMoniker Name="/LogDataContext/RulesCondition" />
+      <nestedChildShapes>
+        <elementListCompartment Id="083aa8cf-76ba-47fe-b555-ba9fcdd6670f" absoluteBounds="0.51500000000000012, 3.835, 1.9700000000000002, 1.5628255208333335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a9ce524c-e08d-4e3b-9e50-60b0fd166e48" isExpanded="false" absoluteBounds="0.5, 4, 2, 0.45">
+      <DataClassMoniker Name="/LogDataContext/RulesAction" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c17b9901-8bbb-47f4-8863-cef92b2f89fb" absoluteBounds="0.51500000000000012, 4.46, 1.9700000000000002, 1.2255859375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9027de6d-7ff1-44a9-ba4e-079b9af18734" absoluteBounds="6.125, 0.5, 2, 0.7738671875">
+      <DataClassMoniker Name="/LogDataContext/TableStruct" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f2ded7fe-8ab5-48da-bf7d-31e661494595" isExpanded="false" absoluteBounds="6.14, 0.96, 1.9700000000000002, 0.2138671875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c2dd6195-0ae2-4383-8668-a8d00c7c0e78" isExpanded="false" absoluteBounds="2.875, 0.5, 2, 0.45">
+      <DataClassMoniker Name="/LogDataContext/App" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9c1a828c-cd56-4e1b-82e2-8b7f7023474e" absoluteBounds="2.89, 0.96, 1.9700000000000002, 1.0569661458333333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f7bb27d7-f0b8-4165-95a1-b58b52b78a7e" isExpanded="false" absoluteBounds="2.75, 2.375, 2, 0.45">
+      <DataClassMoniker Name="/LogDataContext/AppGroupName" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2e5f15bd-649c-4b6e-ac56-7c1c4e5959e8" absoluteBounds="2.7649999999999997, 2.835, 1.9700000000000002, 0.38248697916666669" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

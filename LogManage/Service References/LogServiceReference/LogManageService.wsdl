@@ -1,0 +1,2180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetParamValue">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="paraName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="defaultValue" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetParamValueResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetParamValueResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetParamValue">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="paraName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="value" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetParamValueResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetMaxColumnItemIndex">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetMaxColumnItemIndexResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetMaxColumnItemIndexResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetExistingLogColumns">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetExistingLogColumnsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetExistingLogColumnsResult" type="tns:ArrayOfLogColumnPlus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfLogColumnPlus">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="LogColumnPlus" type="tns:LogColumnPlus" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LogColumnPlus">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Index" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddLogColumn">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="lc" type="tns:LogColumnPlus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddLogColumnResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="AddLogColumns">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="lcs" type="tns:ArrayOfLogColumnPlus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddLogColumnsResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RemoveLogColumn">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="colIndex" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveLogColumnResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RemoveLogColumns">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="lcs" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RemoveLogColumnsResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="IsExistColumnIndex">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="colIndex" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsExistColumnIndexResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IsExistColumnIndexResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddTable">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="appGuid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="table" type="tns:LogTablePuls" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="LogTablePuls">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="GUID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Columns" type="tns:ArrayOfLogTableItemPlus" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfLogTableItemPlus">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="LogTableItemPlus" type="tns:LogTableItemPlus" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LogTableItemPlus">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="LogColumnIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsFilterColumn" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="SeqIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Visible" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="NickName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddTableResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddTableResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveTable">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="appGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tableGuid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveTableResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RemoveTableResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReNameTable">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="appGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tableGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="newName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReNameTableResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ReNameTableResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAppTables">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="appGuid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAppTablesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAppTablesResult" type="tns:ArrayOfLogTablePuls" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfLogTablePuls">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="LogTablePuls" type="tns:LogTablePuls" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddTableItems">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="appGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tableGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="items" type="tns:ArrayOfLogTableItemPlus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddTableItemsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddTableItemsResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveTableItems">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="appGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tableGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="colIndexes" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveTableItemsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RemoveTableItemsResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateTableItemsSequence">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tableGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lstColIndexes" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateTableItemsSequenceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateTableItemsSequenceResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateTableItemValue">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tableGuid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="item" type="tns:LogTableItemPlus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateTableItemValueResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateTableItemValueResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAppTableItems">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tableGuid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAppTableItemsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAppTableItemsResult" type="tns:ArrayOfLogTableItemPlus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsAppGroupNameExisting">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="groupName" type="tns:LogAppGroupNamePlus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="LogAppGroupNamePlus">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="GroupName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="IsAppGroupNameExistingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IsAppGroupNameExistingResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddAppGroups">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="groupnames" type="tns:ArrayOfLogAppGroupNamePlus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfLogAppGroupNamePlus">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="LogAppGroupNamePlus" type="tns:LogAppGroupNamePlus" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddAppGroupsResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ReNameAppGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="oldGroupName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="newGroupName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReNameAppGroupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ReNameAppGroupResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReNameAppGroups">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="oldGroupNames" type="tns:ArrayOfLogAppGroupNamePlus" />
+            <s:element minOccurs="0" maxOccurs="1" name="newGroupNames" type="tns:ArrayOfLogAppGroupNamePlus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReNameAppGroupsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ReNameAppGroupsResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveAppGroupNames">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="groupNames" type="tns:ArrayOfLogAppGroupNamePlus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveAppGroupNamesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RemoveAppGroupNamesResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetExistingAppGroups">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetExistingAppGroupsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetExistingAppGroupsResult" type="tns:ArrayOfLogAppGroupNamePlus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddApplication">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="app" type="tns:LogAppPlus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="LogAppPlus">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="AppGroupName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AppGUID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsImportLogsFromFile" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddApplicationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddApplicationResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReNameApplication">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="appGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="newName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReNameApplicationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ReNameApplicationResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateApplicationPropertes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="appGuid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="la" type="tns:LogAppPlus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateApplicationPropertesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateApplicationPropertesResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveApplication">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="appGuid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveApplicationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RemoveApplicationResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetExistingApps">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetExistingAppsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetExistingAppsResult" type="tns:ArrayOfLogAppPlus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfLogAppPlus">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="LogAppPlus" type="tns:LogAppPlus" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SaveAppLogs">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="appGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tableGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lstRecords" type="tns:ArrayOfLogRecordPlus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfLogRecordPlus">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="LogRecordPlus" type="tns:LogRecordPlus" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LogRecordPlus">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="RecordGuid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RecordItems" type="tns:ArrayOfLogRecordItemPlus" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfLogRecordItemPlus">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="LogRecordItemPlus" type="tns:LogRecordItemPlus" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LogRecordItemPlus">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ColumnIndex" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Content" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SaveAppLogsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SaveAppLogsResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAppLogs">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="appGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tableGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lstConditions" type="tns:ArrayOfLogFilterConditionPlus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfLogFilterConditionPlus">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="LogFilterConditionPlus" type="tns:LogFilterConditionPlus" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LogFilterConditionPlus">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ColumnIndex" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Content" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LeftBound" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RightBound" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Relation" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAppLogsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAppLogsResult" type="tns:ArrayOfLogRecordPlus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAppLogsByLogGuid">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="appGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tableGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lstRecordGuids" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAppLogsByLogGuidResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAppLogsByLogGuidResult" type="tns:ArrayOfLogRecordPlus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDefinedActionResults">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDefinedActionResultsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDefinedActionResultsResult" type="tns:ArrayOfRuleActionResultPlus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfRuleActionResultPlus">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RuleActionResultPlus" type="tns:RuleActionResultPlus" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RuleActionResultPlus">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Desc" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BgColor" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UpdateResults">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="results" type="tns:ArrayOfRuleActionResultPlus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateResultsResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="InsertResults">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="results" type="tns:ArrayOfRuleActionResultPlus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertResultsResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeleteResults">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="lstGuids" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteResultsResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetRulesOfUsingTheResult">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="resultGuid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRulesOfUsingTheResultResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRulesOfUsingTheResultResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDefinedSecurityEvents">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDefinedSecurityEventsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDefinedSecurityEventsResult" type="tns:ArrayOfRuleEvenPlus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfRuleEvenPlus">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RuleEvenPlus" type="tns:RuleEvenPlus" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RuleEvenPlus">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Desc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Actions" type="tns:ArrayOfRuleActionPlus" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfRuleActionPlus">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RuleActionPlus" type="tns:RuleActionPlus" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RuleActionPlus">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Desc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultGuid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Sequence" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Conditions" type="tns:ArrayOfRuleConditionPlus" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfRuleConditionPlus">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RuleConditionPlus" type="tns:RuleConditionPlus" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RuleConditionPlus">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Guid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ColIndexSrc" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ColIndexDest" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsUsingDestCol" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Desc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Condition" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Relation" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CreateNewSecurityEvent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="se" type="tns:RuleEvenPlus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateNewSecurityEventResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="UpdateSecurityEventProperties">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="se" type="tns:RuleEvenPlus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSecurityEventPropertiesResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeleteSecurityEvent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="eventGuid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteSecurityEventResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="CreateNewActionOfEvent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="eventGuid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ap" type="tns:RuleActionPlus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateNewActionOfEventResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="UpdateActionOfEvent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="eventGuid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ap" type="tns:RuleActionPlus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateActionOfEventResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeleteActionOfEvent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="eventGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="actionGuid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteActionOfEventResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="CreateNewConditionOfAction">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="actionGuid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="rcp" type="tns:RuleConditionPlus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateNewConditionOfActionResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="UpdateConditionOfAction">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="actionGuid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="rcp" type="tns:RuleConditionPlus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateConditionOfActionResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeleteConditionOfAction">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="actionGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="conditionGuid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteConditionOfActionResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeleteConditionsOfAction">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="actionGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="conditionGuids" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteConditionsOfActionResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetParamValueSoapIn">
+    <wsdl:part name="parameters" element="tns:GetParamValue" />
+  </wsdl:message>
+  <wsdl:message name="GetParamValueSoapOut">
+    <wsdl:part name="parameters" element="tns:GetParamValueResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetParamValueSoapIn">
+    <wsdl:part name="parameters" element="tns:SetParamValue" />
+  </wsdl:message>
+  <wsdl:message name="SetParamValueSoapOut">
+    <wsdl:part name="parameters" element="tns:SetParamValueResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMaxColumnItemIndexSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMaxColumnItemIndex" />
+  </wsdl:message>
+  <wsdl:message name="GetMaxColumnItemIndexSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMaxColumnItemIndexResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetExistingLogColumnsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetExistingLogColumns" />
+  </wsdl:message>
+  <wsdl:message name="GetExistingLogColumnsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetExistingLogColumnsResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddLogColumnSoapIn">
+    <wsdl:part name="parameters" element="tns:AddLogColumn" />
+  </wsdl:message>
+  <wsdl:message name="AddLogColumnSoapOut">
+    <wsdl:part name="parameters" element="tns:AddLogColumnResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddLogColumnsSoapIn">
+    <wsdl:part name="parameters" element="tns:AddLogColumns" />
+  </wsdl:message>
+  <wsdl:message name="AddLogColumnsSoapOut">
+    <wsdl:part name="parameters" element="tns:AddLogColumnsResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveLogColumnSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveLogColumn" />
+  </wsdl:message>
+  <wsdl:message name="RemoveLogColumnSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveLogColumnResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveLogColumnsSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveLogColumns" />
+  </wsdl:message>
+  <wsdl:message name="RemoveLogColumnsSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveLogColumnsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsExistColumnIndexSoapIn">
+    <wsdl:part name="parameters" element="tns:IsExistColumnIndex" />
+  </wsdl:message>
+  <wsdl:message name="IsExistColumnIndexSoapOut">
+    <wsdl:part name="parameters" element="tns:IsExistColumnIndexResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddTableSoapIn">
+    <wsdl:part name="parameters" element="tns:AddTable" />
+  </wsdl:message>
+  <wsdl:message name="AddTableSoapOut">
+    <wsdl:part name="parameters" element="tns:AddTableResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveTableSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveTable" />
+  </wsdl:message>
+  <wsdl:message name="RemoveTableSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveTableResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReNameTableSoapIn">
+    <wsdl:part name="parameters" element="tns:ReNameTable" />
+  </wsdl:message>
+  <wsdl:message name="ReNameTableSoapOut">
+    <wsdl:part name="parameters" element="tns:ReNameTableResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAppTablesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAppTables" />
+  </wsdl:message>
+  <wsdl:message name="GetAppTablesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAppTablesResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddTableItemsSoapIn">
+    <wsdl:part name="parameters" element="tns:AddTableItems" />
+  </wsdl:message>
+  <wsdl:message name="AddTableItemsSoapOut">
+    <wsdl:part name="parameters" element="tns:AddTableItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveTableItemsSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveTableItems" />
+  </wsdl:message>
+  <wsdl:message name="RemoveTableItemsSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveTableItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateTableItemsSequenceSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateTableItemsSequence" />
+  </wsdl:message>
+  <wsdl:message name="UpdateTableItemsSequenceSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateTableItemsSequenceResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateTableItemValueSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateTableItemValue" />
+  </wsdl:message>
+  <wsdl:message name="UpdateTableItemValueSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateTableItemValueResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAppTableItemsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAppTableItems" />
+  </wsdl:message>
+  <wsdl:message name="GetAppTableItemsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAppTableItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsAppGroupNameExistingSoapIn">
+    <wsdl:part name="parameters" element="tns:IsAppGroupNameExisting" />
+  </wsdl:message>
+  <wsdl:message name="IsAppGroupNameExistingSoapOut">
+    <wsdl:part name="parameters" element="tns:IsAppGroupNameExistingResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddAppGroupsSoapIn">
+    <wsdl:part name="parameters" element="tns:AddAppGroups" />
+  </wsdl:message>
+  <wsdl:message name="AddAppGroupsSoapOut">
+    <wsdl:part name="parameters" element="tns:AddAppGroupsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReNameAppGroupSoapIn">
+    <wsdl:part name="parameters" element="tns:ReNameAppGroup" />
+  </wsdl:message>
+  <wsdl:message name="ReNameAppGroupSoapOut">
+    <wsdl:part name="parameters" element="tns:ReNameAppGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReNameAppGroupsSoapIn">
+    <wsdl:part name="parameters" element="tns:ReNameAppGroups" />
+  </wsdl:message>
+  <wsdl:message name="ReNameAppGroupsSoapOut">
+    <wsdl:part name="parameters" element="tns:ReNameAppGroupsResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveAppGroupNamesSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveAppGroupNames" />
+  </wsdl:message>
+  <wsdl:message name="RemoveAppGroupNamesSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveAppGroupNamesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetExistingAppGroupsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetExistingAppGroups" />
+  </wsdl:message>
+  <wsdl:message name="GetExistingAppGroupsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetExistingAppGroupsResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddApplicationSoapIn">
+    <wsdl:part name="parameters" element="tns:AddApplication" />
+  </wsdl:message>
+  <wsdl:message name="AddApplicationSoapOut">
+    <wsdl:part name="parameters" element="tns:AddApplicationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReNameApplicationSoapIn">
+    <wsdl:part name="parameters" element="tns:ReNameApplication" />
+  </wsdl:message>
+  <wsdl:message name="ReNameApplicationSoapOut">
+    <wsdl:part name="parameters" element="tns:ReNameApplicationResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateApplicationPropertesSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateApplicationPropertes" />
+  </wsdl:message>
+  <wsdl:message name="UpdateApplicationPropertesSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateApplicationPropertesResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveApplicationSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveApplication" />
+  </wsdl:message>
+  <wsdl:message name="RemoveApplicationSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveApplicationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetExistingAppsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetExistingApps" />
+  </wsdl:message>
+  <wsdl:message name="GetExistingAppsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetExistingAppsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveAppLogsSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveAppLogs" />
+  </wsdl:message>
+  <wsdl:message name="SaveAppLogsSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveAppLogsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAppLogsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAppLogs" />
+  </wsdl:message>
+  <wsdl:message name="GetAppLogsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAppLogsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAppLogsByLogGuidSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAppLogsByLogGuid" />
+  </wsdl:message>
+  <wsdl:message name="GetAppLogsByLogGuidSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAppLogsByLogGuidResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDefinedActionResultsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDefinedActionResults" />
+  </wsdl:message>
+  <wsdl:message name="GetDefinedActionResultsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDefinedActionResultsResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateResultsSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateResults" />
+  </wsdl:message>
+  <wsdl:message name="UpdateResultsSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateResultsResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertResultsSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertResults" />
+  </wsdl:message>
+  <wsdl:message name="InsertResultsSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertResultsResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteResultsSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteResults" />
+  </wsdl:message>
+  <wsdl:message name="DeleteResultsSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteResultsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRulesOfUsingTheResultSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRulesOfUsingTheResult" />
+  </wsdl:message>
+  <wsdl:message name="GetRulesOfUsingTheResultSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRulesOfUsingTheResultResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDefinedSecurityEventsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDefinedSecurityEvents" />
+  </wsdl:message>
+  <wsdl:message name="GetDefinedSecurityEventsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDefinedSecurityEventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateNewSecurityEventSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateNewSecurityEvent" />
+  </wsdl:message>
+  <wsdl:message name="CreateNewSecurityEventSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateNewSecurityEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSecurityEventPropertiesSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateSecurityEventProperties" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSecurityEventPropertiesSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateSecurityEventPropertiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSecurityEventSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteSecurityEvent" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSecurityEventSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteSecurityEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateNewActionOfEventSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateNewActionOfEvent" />
+  </wsdl:message>
+  <wsdl:message name="CreateNewActionOfEventSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateNewActionOfEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateActionOfEventSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateActionOfEvent" />
+  </wsdl:message>
+  <wsdl:message name="UpdateActionOfEventSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateActionOfEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteActionOfEventSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteActionOfEvent" />
+  </wsdl:message>
+  <wsdl:message name="DeleteActionOfEventSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteActionOfEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateNewConditionOfActionSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateNewConditionOfAction" />
+  </wsdl:message>
+  <wsdl:message name="CreateNewConditionOfActionSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateNewConditionOfActionResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateConditionOfActionSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateConditionOfAction" />
+  </wsdl:message>
+  <wsdl:message name="UpdateConditionOfActionSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateConditionOfActionResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteConditionOfActionSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteConditionOfAction" />
+  </wsdl:message>
+  <wsdl:message name="DeleteConditionOfActionSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteConditionOfActionResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteConditionsOfActionSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteConditionsOfAction" />
+  </wsdl:message>
+  <wsdl:message name="DeleteConditionsOfActionSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteConditionsOfActionResponse" />
+  </wsdl:message>
+  <wsdl:portType name="LogManageServiceSoap">
+    <wsdl:operation name="GetParamValue">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取指定参数的值，如果没有则返回默认值</wsdl:documentation>
+      <wsdl:input message="tns:GetParamValueSoapIn" />
+      <wsdl:output message="tns:GetParamValueSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetParamValue">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">设置指定参数的值</wsdl:documentation>
+      <wsdl:input message="tns:SetParamValueSoapIn" />
+      <wsdl:output message="tns:SetParamValueSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMaxColumnItemIndex">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取日志列的最大索引号</wsdl:documentation>
+      <wsdl:input message="tns:GetMaxColumnItemIndexSoapIn" />
+      <wsdl:output message="tns:GetMaxColumnItemIndexSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetExistingLogColumns">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取所有已定义的日志列，不包括标记为删除的项</wsdl:documentation>
+      <wsdl:input message="tns:GetExistingLogColumnsSoapIn" />
+      <wsdl:output message="tns:GetExistingLogColumnsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddLogColumn">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">添加日志列，出错抛异常</wsdl:documentation>
+      <wsdl:input message="tns:AddLogColumnSoapIn" />
+      <wsdl:output message="tns:AddLogColumnSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddLogColumns">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">添加日志列集合，出错抛异常</wsdl:documentation>
+      <wsdl:input message="tns:AddLogColumnsSoapIn" />
+      <wsdl:output message="tns:AddLogColumnsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveLogColumn">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">删除日志列，出错抛异常</wsdl:documentation>
+      <wsdl:input message="tns:RemoveLogColumnSoapIn" />
+      <wsdl:output message="tns:RemoveLogColumnSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveLogColumns">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">删除日志列集合，出错抛异常</wsdl:documentation>
+      <wsdl:input message="tns:RemoveLogColumnsSoapIn" />
+      <wsdl:output message="tns:RemoveLogColumnsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsExistColumnIndex">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">检测日志列号是否存在，出错抛异常</wsdl:documentation>
+      <wsdl:input message="tns:IsExistColumnIndexSoapIn" />
+      <wsdl:output message="tns:IsExistColumnIndexSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddTable">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">为指定的应用程序添加日志表,这时不会创建一张表，而是在表中添加列时创建表</wsdl:documentation>
+      <wsdl:input message="tns:AddTableSoapIn" />
+      <wsdl:output message="tns:AddTableSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveTable">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">删除指定的应用程的指定日志表,目前暂时没有删除日志表对应的真实记录</wsdl:documentation>
+      <wsdl:input message="tns:RemoveTableSoapIn" />
+      <wsdl:output message="tns:RemoveTableSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReNameTable">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">重命名指定的应用程的指定日志表的名称</wsdl:documentation>
+      <wsdl:input message="tns:ReNameTableSoapIn" />
+      <wsdl:output message="tns:ReNameTableSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAppTables">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取指定的应用程序的所有日志表</wsdl:documentation>
+      <wsdl:input message="tns:GetAppTablesSoapIn" />
+      <wsdl:output message="tns:GetAppTablesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddTableItems">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">向指定的应用程序的日志表中添加日志表列</wsdl:documentation>
+      <wsdl:input message="tns:AddTableItemsSoapIn" />
+      <wsdl:output message="tns:AddTableItemsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveTableItems">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">删除指定的应用程序的日志表中的日志表列</wsdl:documentation>
+      <wsdl:input message="tns:RemoveTableItemsSoapIn" />
+      <wsdl:output message="tns:RemoveTableItemsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTableItemsSequence">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">更新指定的应用程序的日志表中的日志表列的显示顺序</wsdl:documentation>
+      <wsdl:input message="tns:UpdateTableItemsSequenceSoapIn" />
+      <wsdl:output message="tns:UpdateTableItemsSequenceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTableItemValue">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">更新指定的应用程序的日志表中的日志表列的内容</wsdl:documentation>
+      <wsdl:input message="tns:UpdateTableItemValueSoapIn" />
+      <wsdl:output message="tns:UpdateTableItemValueSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAppTableItems">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取指定应用程序的指定日志的所有列</wsdl:documentation>
+      <wsdl:input message="tns:GetAppTableItemsSoapIn" />
+      <wsdl:output message="tns:GetAppTableItemsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsAppGroupNameExisting">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">检查应用程序分组名称是否存在</wsdl:documentation>
+      <wsdl:input message="tns:IsAppGroupNameExistingSoapIn" />
+      <wsdl:output message="tns:IsAppGroupNameExistingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAppGroups">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">添加新的应用程序分组</wsdl:documentation>
+      <wsdl:input message="tns:AddAppGroupsSoapIn" />
+      <wsdl:output message="tns:AddAppGroupsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReNameAppGroup">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">重命名应用程序分组</wsdl:documentation>
+      <wsdl:input message="tns:ReNameAppGroupSoapIn" />
+      <wsdl:output message="tns:ReNameAppGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReNameAppGroups">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">重命名应用程序分组</wsdl:documentation>
+      <wsdl:input message="tns:ReNameAppGroupsSoapIn" />
+      <wsdl:output message="tns:ReNameAppGroupsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveAppGroupNames">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">删除应用程序分组，删除时如果该分组下有应用程序，暂时不予删除，应该在客户端删除时确认删除时分组内不能有应用程序</wsdl:documentation>
+      <wsdl:input message="tns:RemoveAppGroupNamesSoapIn" />
+      <wsdl:output message="tns:RemoveAppGroupNamesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetExistingAppGroups">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取所有定义的应用程序分组</wsdl:documentation>
+      <wsdl:input message="tns:GetExistingAppGroupsSoapIn" />
+      <wsdl:output message="tns:GetExistingAppGroupsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddApplication">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">添加新的应用程序，假定应用程序不包括日志表</wsdl:documentation>
+      <wsdl:input message="tns:AddApplicationSoapIn" />
+      <wsdl:output message="tns:AddApplicationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReNameApplication">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">重命名应用程序</wsdl:documentation>
+      <wsdl:input message="tns:ReNameApplicationSoapIn" />
+      <wsdl:output message="tns:ReNameApplicationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateApplicationPropertes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">更新应用程序属性</wsdl:documentation>
+      <wsdl:input message="tns:UpdateApplicationPropertesSoapIn" />
+      <wsdl:output message="tns:UpdateApplicationPropertesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveApplication">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">删除应用程序，删除时包括删除与其对应的日志表及表结构,日志内容暂时没有删除</wsdl:documentation>
+      <wsdl:input message="tns:RemoveApplicationSoapIn" />
+      <wsdl:output message="tns:RemoveApplicationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetExistingApps">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取所有定义的应用程序，不过没有获取应用程序的日志信，需要在客户端自己获取</wsdl:documentation>
+      <wsdl:input message="tns:GetExistingAppsSoapIn" />
+      <wsdl:output message="tns:GetExistingAppsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveAppLogs">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">添加应用程序中某一类表的日志，日志记录Guid重复的不添加</wsdl:documentation>
+      <wsdl:input message="tns:SaveAppLogsSoapIn" />
+      <wsdl:output message="tns:SaveAppLogsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAppLogs">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据条件获取应用程序中某一类表的日志</wsdl:documentation>
+      <wsdl:input message="tns:GetAppLogsSoapIn" />
+      <wsdl:output message="tns:GetAppLogsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAppLogsByLogGuid">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">根据日志GUID获取应用程序中某一类表的日志</wsdl:documentation>
+      <wsdl:input message="tns:GetAppLogsByLogGuidSoapIn" />
+      <wsdl:output message="tns:GetAppLogsByLogGuidSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDefinedActionResults">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取用户定义的所有用户行为结果,有问题则抛异常</wsdl:documentation>
+      <wsdl:input message="tns:GetDefinedActionResultsSoapIn" />
+      <wsdl:output message="tns:GetDefinedActionResultsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateResults">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">更新用户定义的所有用户行为结果,如果结果没有定义，则不予更新，有问题则抛异常</wsdl:documentation>
+      <wsdl:input message="tns:UpdateResultsSoapIn" />
+      <wsdl:output message="tns:UpdateResultsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertResults">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">插入用户定义的用户行为结果,有问题则抛异常</wsdl:documentation>
+      <wsdl:input message="tns:InsertResultsSoapIn" />
+      <wsdl:output message="tns:InsertResultsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteResults">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">删除用户定义的用户行为结果,有问题则抛异常</wsdl:documentation>
+      <wsdl:input message="tns:DeleteResultsSoapIn" />
+      <wsdl:output message="tns:DeleteResultsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRulesOfUsingTheResult">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取使用用户定义的用户行为结果的规则名称，用分号隔开,有问题则抛异常</wsdl:documentation>
+      <wsdl:input message="tns:GetRulesOfUsingTheResultSoapIn" />
+      <wsdl:output message="tns:GetRulesOfUsingTheResultSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDefinedSecurityEvents">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取所有定义的安全事件，包含用户行为和条件</wsdl:documentation>
+      <wsdl:input message="tns:GetDefinedSecurityEventsSoapIn" />
+      <wsdl:output message="tns:GetDefinedSecurityEventsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewSecurityEvent">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">创建新的安全事件，不包含用户行为和条件</wsdl:documentation>
+      <wsdl:input message="tns:CreateNewSecurityEventSoapIn" />
+      <wsdl:output message="tns:CreateNewSecurityEventSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSecurityEventProperties">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">更新安全事件信息，不包含用户行为和条件</wsdl:documentation>
+      <wsdl:input message="tns:UpdateSecurityEventPropertiesSoapIn" />
+      <wsdl:output message="tns:UpdateSecurityEventPropertiesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSecurityEvent">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">删除安全事件，包含用户行为和条件</wsdl:documentation>
+      <wsdl:input message="tns:DeleteSecurityEventSoapIn" />
+      <wsdl:output message="tns:DeleteSecurityEventSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewActionOfEvent">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">创建新的安全事件的安全行为，不包含条件</wsdl:documentation>
+      <wsdl:input message="tns:CreateNewActionOfEventSoapIn" />
+      <wsdl:output message="tns:CreateNewActionOfEventSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateActionOfEvent">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">更新安全行为信息，不包含条件</wsdl:documentation>
+      <wsdl:input message="tns:UpdateActionOfEventSoapIn" />
+      <wsdl:output message="tns:UpdateActionOfEventSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteActionOfEvent">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">删除安全行为，包含条件</wsdl:documentation>
+      <wsdl:input message="tns:DeleteActionOfEventSoapIn" />
+      <wsdl:output message="tns:DeleteActionOfEventSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewConditionOfAction">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">创建新的安全条件</wsdl:documentation>
+      <wsdl:input message="tns:CreateNewConditionOfActionSoapIn" />
+      <wsdl:output message="tns:CreateNewConditionOfActionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateConditionOfAction">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">更新安全条件</wsdl:documentation>
+      <wsdl:input message="tns:UpdateConditionOfActionSoapIn" />
+      <wsdl:output message="tns:UpdateConditionOfActionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteConditionOfAction">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">删除安全条件</wsdl:documentation>
+      <wsdl:input message="tns:DeleteConditionOfActionSoapIn" />
+      <wsdl:output message="tns:DeleteConditionOfActionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteConditionsOfAction">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">删除安全条件集合</wsdl:documentation>
+      <wsdl:input message="tns:DeleteConditionsOfActionSoapIn" />
+      <wsdl:output message="tns:DeleteConditionsOfActionSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LogManageServiceSoap" type="tns:LogManageServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetParamValue">
+      <soap:operation soapAction="http://tempuri.org/GetParamValue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetParamValue">
+      <soap:operation soapAction="http://tempuri.org/SetParamValue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaxColumnItemIndex">
+      <soap:operation soapAction="http://tempuri.org/GetMaxColumnItemIndex" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExistingLogColumns">
+      <soap:operation soapAction="http://tempuri.org/GetExistingLogColumns" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddLogColumn">
+      <soap:operation soapAction="http://tempuri.org/AddLogColumn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddLogColumns">
+      <soap:operation soapAction="http://tempuri.org/AddLogColumns" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveLogColumn">
+      <soap:operation soapAction="http://tempuri.org/RemoveLogColumn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveLogColumns">
+      <soap:operation soapAction="http://tempuri.org/RemoveLogColumns" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsExistColumnIndex">
+      <soap:operation soapAction="http://tempuri.org/IsExistColumnIndex" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddTable">
+      <soap:operation soapAction="http://tempuri.org/AddTable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveTable">
+      <soap:operation soapAction="http://tempuri.org/RemoveTable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReNameTable">
+      <soap:operation soapAction="http://tempuri.org/ReNameTable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAppTables">
+      <soap:operation soapAction="http://tempuri.org/GetAppTables" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddTableItems">
+      <soap:operation soapAction="http://tempuri.org/AddTableItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveTableItems">
+      <soap:operation soapAction="http://tempuri.org/RemoveTableItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTableItemsSequence">
+      <soap:operation soapAction="http://tempuri.org/UpdateTableItemsSequence" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTableItemValue">
+      <soap:operation soapAction="http://tempuri.org/UpdateTableItemValue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAppTableItems">
+      <soap:operation soapAction="http://tempuri.org/GetAppTableItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsAppGroupNameExisting">
+      <soap:operation soapAction="http://tempuri.org/IsAppGroupNameExisting" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAppGroups">
+      <soap:operation soapAction="http://tempuri.org/AddAppGroups" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReNameAppGroup">
+      <soap:operation soapAction="http://tempuri.org/ReNameAppGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReNameAppGroups">
+      <soap:operation soapAction="http://tempuri.org/ReNameAppGroups" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveAppGroupNames">
+      <soap:operation soapAction="http://tempuri.org/RemoveAppGroupNames" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExistingAppGroups">
+      <soap:operation soapAction="http://tempuri.org/GetExistingAppGroups" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddApplication">
+      <soap:operation soapAction="http://tempuri.org/AddApplication" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReNameApplication">
+      <soap:operation soapAction="http://tempuri.org/ReNameApplication" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateApplicationPropertes">
+      <soap:operation soapAction="http://tempuri.org/UpdateApplicationPropertes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveApplication">
+      <soap:operation soapAction="http://tempuri.org/RemoveApplication" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExistingApps">
+      <soap:operation soapAction="http://tempuri.org/GetExistingApps" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveAppLogs">
+      <soap:operation soapAction="http://tempuri.org/SaveAppLogs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAppLogs">
+      <soap:operation soapAction="http://tempuri.org/GetAppLogs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAppLogsByLogGuid">
+      <soap:operation soapAction="http://tempuri.org/GetAppLogsByLogGuid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDefinedActionResults">
+      <soap:operation soapAction="http://tempuri.org/GetDefinedActionResults" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateResults">
+      <soap:operation soapAction="http://tempuri.org/UpdateResults" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertResults">
+      <soap:operation soapAction="http://tempuri.org/InsertResults" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteResults">
+      <soap:operation soapAction="http://tempuri.org/DeleteResults" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRulesOfUsingTheResult">
+      <soap:operation soapAction="http://tempuri.org/GetRulesOfUsingTheResult" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDefinedSecurityEvents">
+      <soap:operation soapAction="http://tempuri.org/GetDefinedSecurityEvents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewSecurityEvent">
+      <soap:operation soapAction="http://tempuri.org/CreateNewSecurityEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSecurityEventProperties">
+      <soap:operation soapAction="http://tempuri.org/UpdateSecurityEventProperties" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSecurityEvent">
+      <soap:operation soapAction="http://tempuri.org/DeleteSecurityEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewActionOfEvent">
+      <soap:operation soapAction="http://tempuri.org/CreateNewActionOfEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateActionOfEvent">
+      <soap:operation soapAction="http://tempuri.org/UpdateActionOfEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteActionOfEvent">
+      <soap:operation soapAction="http://tempuri.org/DeleteActionOfEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewConditionOfAction">
+      <soap:operation soapAction="http://tempuri.org/CreateNewConditionOfAction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateConditionOfAction">
+      <soap:operation soapAction="http://tempuri.org/UpdateConditionOfAction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteConditionOfAction">
+      <soap:operation soapAction="http://tempuri.org/DeleteConditionOfAction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteConditionsOfAction">
+      <soap:operation soapAction="http://tempuri.org/DeleteConditionsOfAction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="LogManageServiceSoap12" type="tns:LogManageServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetParamValue">
+      <soap12:operation soapAction="http://tempuri.org/GetParamValue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetParamValue">
+      <soap12:operation soapAction="http://tempuri.org/SetParamValue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaxColumnItemIndex">
+      <soap12:operation soapAction="http://tempuri.org/GetMaxColumnItemIndex" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExistingLogColumns">
+      <soap12:operation soapAction="http://tempuri.org/GetExistingLogColumns" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddLogColumn">
+      <soap12:operation soapAction="http://tempuri.org/AddLogColumn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddLogColumns">
+      <soap12:operation soapAction="http://tempuri.org/AddLogColumns" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveLogColumn">
+      <soap12:operation soapAction="http://tempuri.org/RemoveLogColumn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveLogColumns">
+      <soap12:operation soapAction="http://tempuri.org/RemoveLogColumns" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsExistColumnIndex">
+      <soap12:operation soapAction="http://tempuri.org/IsExistColumnIndex" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddTable">
+      <soap12:operation soapAction="http://tempuri.org/AddTable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveTable">
+      <soap12:operation soapAction="http://tempuri.org/RemoveTable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReNameTable">
+      <soap12:operation soapAction="http://tempuri.org/ReNameTable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAppTables">
+      <soap12:operation soapAction="http://tempuri.org/GetAppTables" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddTableItems">
+      <soap12:operation soapAction="http://tempuri.org/AddTableItems" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveTableItems">
+      <soap12:operation soapAction="http://tempuri.org/RemoveTableItems" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTableItemsSequence">
+      <soap12:operation soapAction="http://tempuri.org/UpdateTableItemsSequence" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTableItemValue">
+      <soap12:operation soapAction="http://tempuri.org/UpdateTableItemValue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAppTableItems">
+      <soap12:operation soapAction="http://tempuri.org/GetAppTableItems" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsAppGroupNameExisting">
+      <soap12:operation soapAction="http://tempuri.org/IsAppGroupNameExisting" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAppGroups">
+      <soap12:operation soapAction="http://tempuri.org/AddAppGroups" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReNameAppGroup">
+      <soap12:operation soapAction="http://tempuri.org/ReNameAppGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReNameAppGroups">
+      <soap12:operation soapAction="http://tempuri.org/ReNameAppGroups" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveAppGroupNames">
+      <soap12:operation soapAction="http://tempuri.org/RemoveAppGroupNames" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExistingAppGroups">
+      <soap12:operation soapAction="http://tempuri.org/GetExistingAppGroups" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddApplication">
+      <soap12:operation soapAction="http://tempuri.org/AddApplication" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReNameApplication">
+      <soap12:operation soapAction="http://tempuri.org/ReNameApplication" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateApplicationPropertes">
+      <soap12:operation soapAction="http://tempuri.org/UpdateApplicationPropertes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveApplication">
+      <soap12:operation soapAction="http://tempuri.org/RemoveApplication" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExistingApps">
+      <soap12:operation soapAction="http://tempuri.org/GetExistingApps" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveAppLogs">
+      <soap12:operation soapAction="http://tempuri.org/SaveAppLogs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAppLogs">
+      <soap12:operation soapAction="http://tempuri.org/GetAppLogs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAppLogsByLogGuid">
+      <soap12:operation soapAction="http://tempuri.org/GetAppLogsByLogGuid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDefinedActionResults">
+      <soap12:operation soapAction="http://tempuri.org/GetDefinedActionResults" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateResults">
+      <soap12:operation soapAction="http://tempuri.org/UpdateResults" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertResults">
+      <soap12:operation soapAction="http://tempuri.org/InsertResults" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteResults">
+      <soap12:operation soapAction="http://tempuri.org/DeleteResults" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRulesOfUsingTheResult">
+      <soap12:operation soapAction="http://tempuri.org/GetRulesOfUsingTheResult" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDefinedSecurityEvents">
+      <soap12:operation soapAction="http://tempuri.org/GetDefinedSecurityEvents" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewSecurityEvent">
+      <soap12:operation soapAction="http://tempuri.org/CreateNewSecurityEvent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSecurityEventProperties">
+      <soap12:operation soapAction="http://tempuri.org/UpdateSecurityEventProperties" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSecurityEvent">
+      <soap12:operation soapAction="http://tempuri.org/DeleteSecurityEvent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewActionOfEvent">
+      <soap12:operation soapAction="http://tempuri.org/CreateNewActionOfEvent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateActionOfEvent">
+      <soap12:operation soapAction="http://tempuri.org/UpdateActionOfEvent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteActionOfEvent">
+      <soap12:operation soapAction="http://tempuri.org/DeleteActionOfEvent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewConditionOfAction">
+      <soap12:operation soapAction="http://tempuri.org/CreateNewConditionOfAction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateConditionOfAction">
+      <soap12:operation soapAction="http://tempuri.org/UpdateConditionOfAction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteConditionOfAction">
+      <soap12:operation soapAction="http://tempuri.org/DeleteConditionOfAction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteConditionsOfAction">
+      <soap12:operation soapAction="http://tempuri.org/DeleteConditionsOfAction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LogManageService">
+    <wsdl:port name="LogManageServiceSoap" binding="tns:LogManageServiceSoap">
+      <soap:address location="http://localhost:43718/LogManageService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="LogManageServiceSoap12" binding="tns:LogManageServiceSoap12">
+      <soap12:address location="http://localhost:43718/LogManageService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
